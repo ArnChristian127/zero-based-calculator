@@ -33,53 +33,43 @@ function checkGrade(grades) {
     return getNumber.toFixed(2);
 }
 document.addEventListener("DOMContentLoaded", () => {
-    const subject = document.getElementById("subjectName");
     const firstTerm = document.getElementById("prelim");
     const secondTerm = document.getElementById("midterm");
     const thirdTerm = document.getElementById("preFinals");
     const finalTerm = document.getElementById("finals");
-    const totalUnits = document.getElementById("totalUnits")
-    submit.addEventListener("click", () => {
-        const nameCourse = subject.value;
+    const totalUnits = document.getElementById("totalUnits");
+    const getFinalGrade = document.getElementById("getFinalGrade");
+    const getStatusResult = document.getElementById("getStatusResult");
+    const invalid = document.getElementById("invalid");
+    compute.addEventListener("click", () => {
         const units = parseFloat(totalUnits.value).toFixed(2);
         const value1 = parseFloat(firstTerm.value);
         const value2 = parseFloat(secondTerm.value);
         const value3 = parseFloat(thirdTerm.value);
         const value4 = parseFloat(finalTerm.value);
-        const compute = (value1 + value2 + value3 + value4) / 4.0;
-        const totals = parseFloat(compute.toFixed(2));
-        let get = "";
-        if (checkGrade(totals) < units) {
-            get = `PASSED`;
-        }
-        else {
-            get = "FAILED";
-        }
-        let htmlOutput = null;
+        const math = (value1 + value2 + value3 + value4) / 4.0;
+        const totals = parseFloat(math.toFixed(2));
+        let getResult = null;
+        if (checkGrade(totals) <= units) {
+            getResult = "PASSED!"
+        } else {getResult = "FAILED!"}
         if (isNaN(value1) || isNaN(value2) || isNaN(value3) || isNaN(value4) || isNaN(units)) {
-            htmlOutput = `Please enter the valid numeric values.`;
-        }
-        else if (nameCourse == '') {
-            htmlOutput = `Please enter the name of the subject.`;
+            invalid.innerHTML = `Please input all the grades and the total of unit.`;
         }
         else {
-            htmlOutput =  `
-                Subject Name: ${nameCourse}<br>
-                Total Units: ${units}<br>
-                Final Grade: ${totals} / ${checkGrade(totals)}<br>
-                Status: <div class="pass-color">${get}</div>
-            `;
+            getFinalGrade.value = totals + "/" + checkGrade(totals);
+            getStatusResult.value = getResult;
         }
-        output.innerHTML = htmlOutput;
     });
     clear.addEventListener("click", () => {
-       let allContents = [
-            subject, firstTerm, secondTerm,
+        let allContents = [
+            firstTerm, secondTerm,
+            getFinalGrade, getStatusResult,
             thirdTerm, finalTerm, totalUnits
         ]
         for (let i = 0; i < allContents.length; i++) {
             allContents[i].value = "";
         }
-        output.innerHTML = "";
+        invalid.innerHTML = ``;
     });
 });
