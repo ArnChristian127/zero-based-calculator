@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="sti-logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>STI Zero-Based Caculator</title>
+</head>
+<body>
+    <div class="input-cover">
+        <div class="input-container">
+            <div class="width-spaces"></div>
+            <div class="width-spaces">
+                <h1>STI Zero-Based Calculator</h1>
+            </div>
+            <div class="input-box">
+                <input class="subject" type="text" placeholder="Subject name" id="subjectName">
+                <input class="grades" type="text" placeholder="Prelim" id="prelim" maxlength="5">
+                <input class="grades" type="text" placeholder="Midterm" id="midterm" maxlength="5">
+                <input class="grades" type="text" placeholder="Pre-finals" id="preFinals" maxlength="5">
+                <input class="grades" type="text" placeholder="Finals" id="finals" maxlength="5">
+                <input class="units" type="text" placeholder="Total units of that subject" id="totalUnits" maxlength="4">
+                <div class="button-container">
+                    <button id="submit">Submit</button>
+                    <button id="clear">Clear</button>
+                </div>
+            </div>
+            <div class="result-box">
+                <div class="white-output">
+                    <p class="bold-p" id="output"></p>
+                </div>
+            </div>
+            <div class="width-spaces">
+                © 2024 Indev-Arn. All rights reserved.
+            </div>
+        </div>
+    </div>
+    <script src="functions.js"></script>
+</body>
+</html>
