@@ -5,8 +5,9 @@
     border-style: none;
     font-family: "Poppins", sans-serif;
 }
-.input-cover {
+body {
     background: linear-gradient(to bottom, #9931ee 20%, #ce68e2 50%);
+    background-attachment: fixed;
 }
 .input-container {
     min-height: 800px;
